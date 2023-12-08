@@ -23,7 +23,7 @@ This is a simple web application that includes a timer and a stopwatch. The appl
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/timer-stopwatch.git
+   git clone https://github.com/SreeHarsha-Kamisetty/timer-stopwatch.git
    ```
 
 2. Open the `index.html` file in your web browser.
