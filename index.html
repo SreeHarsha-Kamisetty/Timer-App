@@ -3,12 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Timer and Stopwatch</title>
 </head>
 <body>
-    <div><h1 id="seconds">Test</h1></div>
+    <h1>STOP WATCH </h1>
+    <table>
+        <thead>
+            <th>Days</th>
+        <th>Hours</th>
+        <th>Minutes</th>
+        <th>Seconds</th>
+        </thead>
+        <tbody>
+           <tr>
+            <td>
+                <span id="days">00</span>
+            </td>
+            <td><span id="hours">00</span></td>
+            <td><span id="minutes">00</span></td>
+            <td><span id="seconds">00</span></td>
+           </tr>
+           
+        </tbody>
+        
+    </table>
+    
     <button id="start">Start</button>
     <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
 </body>
 <script src="script.js"></script>
 </html>
