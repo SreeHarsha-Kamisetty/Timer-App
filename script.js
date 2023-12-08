@@ -78,9 +78,7 @@ let T_secs = document.getElementById('timer-seconds');
 
 let minsIncreaseBtn = document.getElementById('timer-increase');
 let minsDecreaseBtn = document.getElementById('timer-decrease');
-let timerStartBtn = document.getElementById('timer-start');
-let timerStopBtn = document.getElementById('timer-stop');
-let timerResetBtn = document.getElementById('timer-reset');
+
 function MinsIncrease(){
     timerMinutes++;
     // if(timerMinutes%60 ==0){
@@ -116,14 +114,58 @@ minsIncreaseBtn.addEventListener('click',()=>{
 minsDecreaseBtn.addEventListener('click',() =>{
     MinsDecrease();
 })
-timerMinutes = T_mins.innerText
-console.log(timerMinutes)
 
-timerStartBtn.addEventListener('click',()=>{
-   TimerStart();
-})
-var interval;
-function TimerStart(){
-     interval = setInterval(MinsDecrease,1000);
+function DecreaseSeconds(){
+   if(timerSeconds>0){
+    timerSeconds--;
+    timerMinutes = Math.floor(timerSeconds/60);
+    timerHours = Math.floor(timerMinutes/60);
+    timerDays = Math.floor(timerHours/24);
+    T_secs.innerText = timerSeconds%60;
+    T_mins.innerText = timerMinutes;
+    T_hours.innerText = timerHours;
+    T_days.innerText = timerDays;
+   }
+   else{
+    clearInterval(interval);
+    
+   }
+  
 }
 
+var interval;
+function TimerStart(){
+     interval = setInterval(DecreaseSeconds,1000);
+}
+
+let timerStarted = false;
+let timerStartBtn = document.getElementById('timer-start');
+let timerStopBtn = document.getElementById('timer-stop');
+let timerResetBtn = document.getElementById('timer-reset');
+timerStartBtn.addEventListener('click',() =>{
+    if(!timerStarted){
+        timerMinutes = T_mins.innerText
+        if(timerSeconds ==0){
+            timerSeconds = timerMinutes*60;
+        }
+       TimerStart();
+       timerStarted = true;
+    }
+})
+timerStopBtn.addEventListener('click',() =>{
+    clearInterval(interval);
+    timerStarted = false;
+})
+timerResetBtn.addEventListener('click',() =>{
+    clearInterval(interval);
+    timerSeconds =0;
+    timerMinutes = 0;
+    timerHours = 0;
+    timerDays = 0;
+    T_secs.innerText = timerSeconds%60;
+    T_mins.innerText = timerMinutes;
+    T_hours.innerText = timerHours;
+    T_days.innerText = timerDays;
+    timerStarted = false;
+
+})
