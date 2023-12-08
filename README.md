@@ -40,4 +40,7 @@ The stopwatch increments seconds, minutes, hours, and days as time progresses. Y
 
 Set the timer duration by increasing or decreasing days, hours, and minutes. Start the timer, and it will count down the remaining time. You can stop, reset, and adjust the timer duration during operation.
 
+### How the webpage looks: 
+
+<img src="https://github.com/SreeHarsha-Kamisetty/Timer-App/assets/146928943/9ba86635-72de-4d6c-9bb2-4d6d6afdf25d">
 
